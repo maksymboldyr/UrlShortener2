@@ -1,0 +1,14 @@
+﻿@page
+@model             InfoModel
+@{
+    ViewData["Title"] = "Url Info";
+}
+
+<div>
+    <h1>@ViewData["Title"]</h1>
+    <p>Shortened URL: @Model.ShortUrl</p>
+    <p>Original URL: @Model.OriginalUrl</p>
+    <p>Visits: @Model.Clicks</p>
+    <p>Created: @Model.CreatedAt</p>
+    <p>Author Email: @Model.Email</p>
+</div>

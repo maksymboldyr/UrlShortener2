@@ -1,0 +1,28 @@
+﻿@page
+@model AboutModel
+@{
+
+}
+
+<h1>@Model.Title</h1>
+
+<p>@Model.PageContent</p>
+
+@if (Model.IsAdmin)
+{
+    <form id="about-entry" method="post">
+        <div class="form-group">
+            <div class="mb-3">
+                <label asp-for="InputTitle">Title:</label>
+                <input type="text" id="InputTitle" name="InputTitle" asp-for="InputTitle" class="form-control" placeholder="Title" value="@Model.Title" />
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="InputContent">Content:</label>
+                <textarea id="InputContent" name="InputContent" asp-for="InputContent" class="form-control" placeholder="@Model.PageContent"></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary mb-3">Submit</button>
+        </div>
+    </form>
+}
