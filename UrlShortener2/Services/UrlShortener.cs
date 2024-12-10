@@ -14,6 +14,7 @@ namespace UrlShortener2.Services
             var base64 = Convert.ToBase64String(hash)
                 .Replace('+', '-') // Replace URL-unsafe characters with safe ones
                 .Replace('/', '_')
+                .Replace("=", "_")
                 .Substring(0, 8); // Truncate to 8 characters for compactness
 
             return base64;
