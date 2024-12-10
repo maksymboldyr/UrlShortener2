@@ -35,10 +35,8 @@ export class UrlService {
 
   getPaginated(page: number = 1, limit: number = 10): Observable<UrlTableEntry[]> {
     return this.http.get<UrlTableEntry[]>(`${this.api}/urls?page=${page}&limit=${limit}`)
-      .pipe(map((response: UrlTableEntry[]) => {
-        console.log("response" + response);        
-        return response.map(entry => {
-          console.log("entry" + entry);          
+      .pipe(map((response: UrlTableEntry[]) => {     
+        return response.map(entry => {     
           return {
             id: entry.id,
             userId: entry.userId,
@@ -51,7 +49,6 @@ export class UrlService {
   }
 
   create(url: string): Observable<UrlTableEntry> {
-    console.log(url);   
     const request = { originalUrl: url };
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
 

@@ -28,7 +28,6 @@ export class AuthService {
   getUserId(): Observable<string> {
     return this.http.get(`${this.api}/rbac/CurrentUserId`, { responseType: 'text' }).pipe(
       map((data: string) => {
-        console.log('Got user id', data);
         return data;
       })
     );
@@ -36,8 +35,6 @@ export class AuthService {
 
   getRoles() {
     this.http.get<string[]>(`${this.api}/rbac/CurrentRoles`).subscribe((data) => {
-      console.log('Got roles', data);
-      
       this.roles = data;
     }, (error: HttpErrorResponse) => {
       console.error('Failed to get roles', error);

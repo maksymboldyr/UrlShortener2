@@ -74,10 +74,7 @@ export class AppComponent {
 
     const url = this.urlForm.get('originalUrl')?.value;
 
-    this.urlTextToDisplay = url;
-
-    console.log(url);
-    
+    this.urlTextToDisplay = url;    
     
     this.urlService.create(url).subscribe((data) => {
       this.tableData.push(data);
